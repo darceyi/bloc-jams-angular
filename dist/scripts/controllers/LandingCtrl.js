@@ -2,6 +2,7 @@
 	function LandingCtrl() {
 		//Using the this keyword adds heroTitle as a property on the LandingCtrl's $scope object.
 		this.heroTitle = "Turn the Music Up!";
+	}
 
 	angular
 		//Note that the .module() call does not have the second argument, the array of dependencies. Because we've set the 
