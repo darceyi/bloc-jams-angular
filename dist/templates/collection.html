@@ -1,6 +1,7 @@
  <section class="album-covers container clearfix">
  <!-- the collection is the albums array that we created in CollectionCtrl.js to hold copies of albumPicasso. The "album in collection.albums" part of the code is what allows us to access the data from a single item in the collection.  -->
-     <div class="collection-album-container column fourth" ng-repeat="album in collection.albums">
+<!--     With ngRepeat, the <div> with the collection-album-container class will repeat as many times as set by the loop.
+ -->     <div class="collection-album-container column fourth" ng-repeat="album in collection.albums">
         <!-- Update the Collection template to access the data from the albums property -->
          <img src="{{ album.albumArtUrl }}">
          <div class="collection-album-info caption">

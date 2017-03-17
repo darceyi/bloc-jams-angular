@@ -13,4 +13,5 @@
 
 		//The LandingCtrl for Bloc Jams is registered for the landing.html template.
 		.controller('LandingCtrl', LandingCtrl);
+	}
 })();
