@@ -1,13 +1,15 @@
  <section class="album-covers container clearfix">
-     <div class="collection-album-container column fourth">
-         <img src="/assets/images/album_covers/01.png"/>
+ <!-- the collection is the albums array that we created in CollectionCtrl.js to hold copies of albumPicasso. The "album in collection.albums" part of the code is what allows us to access the data from a single item in the collection.  -->
+     <div class="collection-album-container column fourth" ng-repeat="album in collection.albums">
+        <!-- Update the Collection template to access the data from the albums property -->
+         <img src="{{ album.albumArtUrl }}">
          <div class="collection-album-info caption">
              <p>
-                 <a class="album-name" ui-sref="album">The Colors</a>
+                 <a class="album-name" ui-sref="album">{{ album.title }}</a>
                  <br/>
-                 <a ui-sref="album">Pablo Picasso</a>
+                 <a ui-sref="album">{{ album.artist }}</a>
                  <br/>
-                 X songs
+                 {{ album.songs.length }}
                  <br/>
              </p>
          </div>
@@ -15,4 +17,4 @@
  </section>
 
 <!--playerbar-->
- <ng-include src="'/templates/player_bar.html'"></ng-include>
+<!--  <ng-include src="'/templates/player_bar.html'"></ng-include> -->

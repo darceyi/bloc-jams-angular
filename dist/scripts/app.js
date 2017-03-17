@@ -7,6 +7,7 @@
 		
 		//For example, if we navigate to a state with the path /album, the full URL will read  
 		//localhost:3000/#!/album. It doesn't look nice, but we can disable it:
+        //By setting the html5Mode method's enabled property to true, the hashbang URLs are disabled; that is, users will see clean URLs without the hashbang. 
 		$locationProvider
          	.html5Mode({
             	 enabled: true,
@@ -20,6 +21,7 @@
         $stateProvider
         	.state('landing', {
         		url: '/',
+                controller: 'LandingCtrl as landing',
         		templateUrl: '/templates/landing.html'
         	})
         	.state('album', {
@@ -28,9 +30,11 @@
         	})
         	.state('collection', {
         		url: '/collection',
+                controller: 'CollectionCtrl as collection',
         		templateUrl: '/templates/collection.html'
         	});
         	//chained calls
+            //When chaining method calls, it is common to see each call happen own its own line.
 	}
 
 // angular.module('blocJams', ['ui.router']);
