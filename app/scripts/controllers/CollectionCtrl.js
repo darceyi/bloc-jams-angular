@@ -1,16 +1,14 @@
 (function() {
-	function CollectionCtrl() {
-		//bind the data from the  albumPicasso object to the Collection template
-		//We add an albums property and set its value to an empty array. Within the for loop, 
-		//we use angular.copy to make copies of albumPicasso and push them to the array.
-		this.albums = [];
-		for (var i = 0; i < 12; i++) {
-			//angular.copy: Creates a deep copy of source, which should be an object or an array.
-			this.albums.push(angular.copy(albumPicasso));
-		}
+	function CollectionCtrl(Fixtures) {
+		this.albums = Fixtures.getCollection(12);
 	}
 
 	angular
 		.module('blocJams')
-		.controller('CollectionCtrl', CollectionCtrl);
+		.controller('CollectionCtrl', ['Fixtures', CollectionCtrl]);
+		//The .controller() method has two parameters:
+			//The name of the controller.
+			//A callback function or an array that injects dependencies, 
+			//with a callback function that executes when the controller is
+			//initialized as the last item in the array.
 })();
