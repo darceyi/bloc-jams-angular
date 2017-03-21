@@ -29,13 +29,6 @@ module.exports = function(grunt) {
         },
 
         copy: {
-            main: {
-                files: {
-                    src: ['assets/js/*.js'],
-                    dest: './dest'
-                }
-            }
-
             dist: {
                 files: [{
                     expand: true,
