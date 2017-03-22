@@ -1,9 +1,20 @@
 (function() {
-
+	 /**
+ 		* @function SongPlayer
+ 		* @desc Service that controls when a song plays, pauses
+ 		* @returns {SongPlayer}
+ 		*/
 	function SongPlayer(){
-
+		 /**
+ 		* @desc assigns empty object to var SongPlayer --why?
+ 		* @type {Object}
+ 		*/
 		var SongPlayer = {};
 
+		 /**
+ 		* @desc currently playing song
+ 		* @type {Object}
+ 		*/
 		var currentSong = null;
 
 		 /**
@@ -32,13 +43,26 @@
 			currentSong = song;
 		};
 
+		/*
+		* @function playSong
+		* @desc plays current song
+		* @ param {Object} song
+		*/
+		var playSong = function(song) {
+			currentBuzzObject.play();
+			song.playing = true;
+		};
 
+		/*
+		* @function SongPlayer.play
+		* @desc method for the SongPlayer service that allows song playing
+		* @ param {Object} song
+		*/
 		SongPlayer.play = function(song) {
 			//If the currently playing song is not the same as the song the user clicks on, then we want to
 			if (currentSong !== song) {
 				setSong(song);
-				currentBuzzObject.play();
-				song.playing = true;		
+				playSong(song);			
 			} else if (currentSong === song) {
 				if (currentBuzzObject.isPaused()) {
 					currentBuzzObject.play();
@@ -46,7 +70,11 @@
 			}
 		};
 
-
+		/*
+		* @function SongPlayer.puse
+		* @desc method for the SongPlayer service that allows song pausing
+		* @ param {Object} song
+		*/
 		SongPlayer.pause = function(song) {
 			currentBuzzObject.pause();
 			song.playing = false;
