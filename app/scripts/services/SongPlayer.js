@@ -65,10 +65,10 @@
 		};
 
 		 /**
- 		* @desc currently playing song
+ 		* @desc currently playing songActive song object from list of songs
  		* @type {Object}
  		*/
- 		//change the private attribute SongPlayer.currentSong into a public attribute named  SongPlayer.SongPlayer.currentSong so that we can use it within the player bar
+ 		//CP 8 change the private attribute SongPlayer.currentSong into a public attribute named  SongPlayer.SongPlayer.currentSong so that we can use it within the player bar
 		SongPlayer.currentSong = null;
 
 		/*
@@ -87,7 +87,7 @@
 				playSong(song);			
 			} else if (SongPlayer.currentSong === song) {
 				if (currentBuzzObject.isPaused()) {
-					currentBuzzObject.play();
+					playSong(song);
 				}
 			}
 		};
