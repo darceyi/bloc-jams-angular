@@ -53,6 +53,8 @@
 				//Holds the maximum value of the song and volume seek bars. Default value is 100.
 				scope.max = 100;
 
+				var seekBar = $(element);
+
 				//A function that calculates a percent based on the value and maximum value of a seek bar.
 				var percentString = function() {
 					var value = scope.value;
