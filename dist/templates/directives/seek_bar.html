@@ -1,7 +1,4 @@
-<!-- declare in the HTML which element should execute scope.onClickSeekBar()
- -->
 <div class="seek-bar" ng-click="onClickSeekBar($event)">
-	<!-- Note that scope does not precede the method name in the view (e.g.  scope.fillStyle()). The directive knows which attributes and methods are on its  scope and can be used in the view.  -->
     <div class="fill" ng-style="fillStyle()"></div>
     <div class="thumb" ng-mousedown="trackThumb()"></div>
 </div>
