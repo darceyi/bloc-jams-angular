@@ -4,7 +4,7 @@
  		* @desc Service that controls when a song plays, pauses
  		* @returns {SongPlayer}
  		*/
-	function SongPlayer(Fixtures){
+	function SongPlayer($rootScope, Fixtures) {
 		 /**
  		* @desc assigns empty object to var SongPlayer
  		* @type {Object}
@@ -50,6 +50,12 @@
 				preload: true
 			});
 
+			currentBuzzObject.bind('timeupdate', function() {
+         		$rootScope.$apply(function() {
+             		SongPlayer.currentTime = currentBuzzObject.getTime();
+         		});
+     		});
+
 			SongPlayer.currentSong = song;
 		};
 
@@ -79,6 +85,12 @@
  		*/
  		//CP 8 change the private attribute SongPlayer.currentSong into a public attribute named  SongPlayer.SongPlayer.currentSong so that we can use it within the player bar
 		SongPlayer.currentSong = null;
+
+		/**
+ 		* @desc Current playback time (in seconds) of currently playing song
+		* @type {Number}
+		*/
+ 		SongPlayer.currentTime = null;
 
 		/*
 		* @function SongPlayer.play
@@ -136,6 +148,19 @@
 			}
 		};
 
+		/**
+		* @function setCurrentTime
+		* @desc Set current time (in seconds) of currently playing song
+		* @param {Number} time
+		*/
+		//The setCurrentTime method checks if there is a current Buzz object, and, if so, 
+		//uses the Buzz library's setTime method to set the playback position in seconds.
+		SongPlayer.setCurrentTime = function(time) {
+			if (currentBuzzObject) {
+				currentBuzzObject.setTime(time);
+			}
+		};
+
 		/*
 		* @function SongPlayer.pause
 		* @desc method for the SongPlayer service that allows song pausing
@@ -152,6 +177,5 @@
 
 	angular
 		.module('blocJams')
-		.factory('SongPlayer', ['Fixtures', SongPlayer]);
-
+		.factory('SongPlayer', ['$rootScope', 'Fixtures', SongPlayer]);
 })();
