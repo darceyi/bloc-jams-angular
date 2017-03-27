@@ -29,13 +29,13 @@
                 <!-- When we declared scope.value and scope.max we gave them default values of 0 and 100, respectively. In the view, however, we've set the value of value to {{ playerBar.songPlayer.currentTime }} and the value of max to {{ PlayerBarCtrlar.songPlayer.currentSong.duration }} -->
                 <!-- Add an attribute named on-change that takes an expression to execute when we change the value of the seek bar. In this case, we'll pass it a callback that sets the time of the song to correspond to the value of the seek bar: -->
                 <seek-bar value="{{ playerBar.songPlayer.currentTime }}" max="{{ playerBar.songPlayer.currentSong.duration }}" on-change="playerBar.songPlayer.setCurrentTime(value)"></seek-bar>
-                <div class="current-time"></div>
+                <div class="current-time">{{ playerBar.songPlayer.currentTime }}</div>
                 <div class="total-time">{{ playerBar.songPlayer.currentSong.duration }}</div>
             </div>
         </div>
         <div class="control-group volume">
             <span class="icon ion-volume-high"></span>
-            <seek-bar></seek-bar>
+            <seek-bar value="{{ playerBar.songPlayer.volume }}" max=100 on-change="playerBar.songPlayer.setVolume(value)"></seek-bar>
         </div>
     </div>
 </section>

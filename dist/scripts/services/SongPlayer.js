@@ -92,6 +92,12 @@
 		*/
  		SongPlayer.currentTime = null;
 
+ 		/**
+ 		* @desc Default volume
+		* @type {Number}
+		*/
+ 		SongPlayer.volume = 40;
+
 		/*
 		* @function SongPlayer.play
 		* @desc method for the SongPlayer service that allows song playing
@@ -158,6 +164,19 @@
 		SongPlayer.setCurrentTime = function(time) {
 			if (currentBuzzObject) {
 				currentBuzzObject.setTime(time);
+			}
+		};
+
+		/**
+		* @function setVolume
+		* @desc Set volume of currently playing song
+		* @param {Number}
+		*/
+		//The setCurrentTime method checks if there is a current Buzz object, and, if so, 
+		//uses the Buzz library's setTime method to set the playback position in seconds.
+		SongPlayer.setVolume = function(volume) {
+			if (currentBuzzObject) {
+				currentBuzzObject.setVolume(volume);
 			}
 		};
 
